@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TMH // Analytics.sys // Portfolio Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'JetBrains Mono', monospace; background-color: #0d1117; color: #c9d1d9; }
+        .code-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
+        .neon-text { color: #58a6ff; }
+        .accent-green { color: #3fb950; }
+        .accent-red { color: #f85149; }
+        .accent-yellow { color: #d29922; }
+        .markdown-h2 { color: #58a6ff; font-weight: bold; margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .markdown-li { margin-bottom: 0.5rem; color: #8b949e; line-height: 1.5; }
+        .markdown-li strong { color: #c9d1d9; font-weight: 600; }
+    </style>
+</head>
+<body class="p-6 md:p-12 selection:bg-blue-500/30">
+
+    <header class="max-w-7xl mx-auto mb-6 border-b border-gray-700 pb-6">
+        <h1 class="text-3xl font-bold neon-text mb-2">Teen Mental Health & Social Media Dashboard</h1>
+        <p class="text-gray-400 text-sm">Status: <span class="accent-green">Completed</span> | Parsing 1,200 records... <span class="accent-green">SUCCESS</span>.</p>
+        <p class="text-gray-400 text-sm">Analyzed by Farkhan Mustafazade.</p>
+        <p class="text-gray-400 text-sm">Dataset belongs to https://www.kaggle.com/algozee</p>
+    </header>
+
+    <div class="max-w-7xl mx-auto code-card mb-10 border-l-4 border-l-[#58a6ff]">
+        <div class="flex flex-wrap items-center gap-2 mb-6">
+            <img src="https://img.shields.io/badge/Status-Completed-success" alt="Status">
+            <img src="https://img.shields.io/badge/Tools-SQL%20|%20Power%20BI%20|%20HTML%20|%20Chart.js-blue" alt="Tools">
+        </div>
+        
+        <h2 class="markdown-h2">## Project Overview</h2>
+        <p class="text-sm text-gray-400 mb-8 leading-relaxed">
+            This project analyzes a dataset of 1,200 teenagers to understand the correlation between their daily social media habits and their mental well-being (stress, anxiety, depression). The goal of this project is to clean, query, and visualize the data to draw actionable insights regarding screen time.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+            <div>
+                <h2 class="markdown-h2">## Objectives</h2>
+                <ul class="list-disc list-inside text-sm">
+                    <li class="markdown-li"><strong>Data Querying:</strong> Write SQL queries to extract behaviors and aggregate mental health scores.</li>
+                    <li class="markdown-li"><strong>Data Visualization:</strong> Build a visually clean and appropriate HTML/JS dashboard to present the findings.</li>
+                    <li class="markdown-li"><strong>Transformation:</strong> As a Data Analyst - translate raw metrics into understandable human behaviors.</li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="markdown-h2">## Key Data Insights</h2>
+                <ul class="list-disc list-inside text-sm">
+                    <li class="markdown-li"><strong>The Sleep Deficit:</strong> The average sleep time for teens is 6.4 hours. High pre-sleep screen time (2+ hours) correlates to significantly lower sleep duration.</li>
+                    <li class="markdown-li"><strong>Platform Averages:</strong> Instagram is the most prominent standalone platform, but 33% of users use both TikTok and Instagram heavily.</li>
+                    <li class="markdown-li"><strong>Stress Correlation:</strong> Average stress rests at 5.4/10. Heavy social media usage (7+ hours/day) correlates with higher anxiety metrics and lower academic performance.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="bg-[#0d1117] p-4 rounded border border-gray-700">
+            <h2 class="text-sm font-bold text-gray-300 mb-2">##Files Overview</h2>
+            <p class="text-xs text-gray-500 font-mono">
+                > teen_mental_health.csv (Raw Dataset)<br>
+                > sql_queries.sql (Analytical Aggregations)<br>
+            </p>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
+        <div class="code-card">
+            <h3 class="text-gray-500 text-xs uppercase tracking-widest mb-1">Total_Rows</h3>
+            <p class="text-2xl font-bold">1,200</p>
+        </div>
+        <div class="code-card">
+            <h3 class="text-gray-500 text-xs uppercase tracking-widest mb-1">Depression_Rate</h3>
+            <p class="text-2xl font-bold accent-red">2.58%</p>
+        </div>
+        <div class="code-card">
+            <h3 class="text-gray-500 text-xs uppercase tracking-widest mb-1">Avg_Anxiety_Lvl</h3>
+            <p class="text-2xl font-bold accent-yellow">5.63 <span class="text-sm font-normal text-gray-500">/ 10</span></p>
+        </div>
+        <div class="code-card">
+            <h3 class="text-gray-500 text-xs uppercase tracking-widest mb-1">Gender_Split</h3>
+            <p class="text-2xl font-bold neon-text">51% M <span class="text-gray-600">|</span> 49% F</p>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <div class="code-card lg:col-span-1 flex flex-col justify-between">
+            <div>
+                <h2 class="text-lg font-semibold mb-1">System Load: Mental State Profiler</h2>
+                <p class="text-xs text-gray-500 mb-4">Comparing depressed vs non-depressed baselines.</p>
+            </div>
+            <div class="relative h-64"><canvas id="radarChart"></canvas></div>
+        </div>
+
+        <div class="code-card lg:col-span-1 flex flex-col justify-between">
+            <div>
+                <h2 class="text-lg font-semibold mb-1">Network: Social Interaction Tier</h2>
+                <p class="text-xs text-gray-500 mb-4">Self-reported offline interaction levels.</p>
+            </div>
+            <div class="relative h-64 flex justify-center"><canvas id="socialChart"></canvas></div>
+        </div>
+
+        <div class="code-card lg:col-span-1 flex flex-col justify-between">
+            <div>
+                <h2 class="text-lg font-semibold mb-1">Query: Depression by Gender</h2>
+                <p class="text-xs text-gray-500 mb-4">Percentage of users flagged with depression.</p>
+            </div>
+            <div class="relative h-64"><canvas id="genderChart"></canvas></div>
+        </div>
+
+        <div class="code-card lg:col-span-1 flex flex-col justify-between">
+            <div>
+                <h2 class="text-lg font-semibold mb-1">The FOMO U-Curve</h2>
+                <p class="text-xs text-gray-500 mb-4">Avg Stress mapped to Daily Screen Time (Hours).</p>
+            </div>
+            <div class="relative h-64"><canvas id="fomoChart"></canvas></div>
+        </div>
+
+        <div class="code-card lg:col-span-2">
+            <div>
+                <h2 class="text-lg font-semibold mb-1">Traffic: Platform Specific Popularity</h2>
+                <p class="text-xs text-gray-500 mb-4">Users broken down by primary platform.</p>
+            </div>
+            <div class="relative h-64"><canvas id="platformChart"></canvas></div>
+        </div>
+
+        <div class="code-card lg:col-span-2">
+            <div>
+                <h2 class="text-lg font-semibold mb-1">Timeline: Stress & Anxiety by Age</h2>
+                <p class="text-xs text-gray-500 mb-4">Progression metrics from age 13 through 19.</p>
+            </div>
+            <div class="relative h-72"><canvas id="ageLineChart"></canvas></div>
+        </div>
+
+        <div class="code-card lg:col-span-1 flex flex-col justify-between">
+            <div>
+                <h2 class="text-lg font-semibold mb-1">Sector Analysis: Sleep Deprivation</h2>
+                <p class="text-xs text-gray-500 mb-4">Distribution of total sleep hours among users.</p>
+            </div>
+            <div class="relative h-72"><canvas id="sleepPolarChart"></canvas></div>
+        </div>
+    </div>
+
+    <script>
+        Chart.defaults.color = '#8b949e';
+        Chart.defaults.font.family = "'JetBrains Mono', monospace";
+        Chart.defaults.plugins.tooltip.backgroundColor = 'rgba(22, 27, 34, 0.9)';
+        Chart.defaults.plugins.tooltip.borderColor = '#30363d';
+        Chart.defaults.plugins.tooltip.borderWidth = 1;
+
+        new Chart(document.getElementById('radarChart'), {
+            type: 'radar',
+            data: {
+                labels: ['Stress', 'Anxiety', 'Addiction', 'Sleep Deprivation'],
+                datasets: [
+                    { label: 'Depressed', data: [8.5, 8.6, 5.3, 5.2], backgroundColor: 'rgba(248, 81, 73, 0.2)', borderColor: '#f85149' },
+                    { label: 'Non-Depressed', data: [5.4, 5.6, 5.6, 3.5], backgroundColor: 'rgba(88, 166, 255, 0.2)', borderColor: '#58a6ff' }
+                ]
+            },
+            options: { responsive: true, maintainAspectRatio: false, scales: { r: { grid: { color: '#30363d' }, angleLines: { color: '#30363d' }, ticks: { display: false } } } }
+        });
+
+        new Chart(document.getElementById('socialChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Low', 'Medium', 'High'],
+                datasets: [{ data: [415, 416, 369], backgroundColor: ['#f85149', '#d29922', '#3fb950'], borderWidth: 0 }]
+            },
+            options: { responsive: true, maintainAspectRatio: false, cutout: '75%', plugins: { legend: { position: 'bottom' } } }
+        });
+
+        new Chart(document.getElementById('genderChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Female', 'Male'],
+                datasets: [{ label: 'Depression Rate (%)', data: [2.91, 2.28], backgroundColor: ['#a371f7', '#58a6ff'], borderRadius: 4 }]
+            },
+            options: { responsive: true, maintainAspectRatio: false, scales: { y: { grid: { color: '#30363d' } }, x: { grid: { display: false } } }, plugins: { legend: { display: false } } }
+        });
+
+        new Chart(document.getElementById('platformChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Instagram Only', 'TikTok Only', 'Both Platforms'],
+                datasets: [{ label: 'Total Users', data: [411, 398, 391], backgroundColor: '#238636', borderRadius: 4 }]
+            },
+            options: { responsive: true, maintainAspectRatio: false, scales: { y: { grid: { color: '#30363d' } }, x: { grid: { display: false } } } }
+        });
+
+        new Chart(document.getElementById('fomoChart'), {
+            type: 'bar',
+            data: {
+                labels: ['0-2 hrs', '3-4 hrs', '5-6 hrs', '7-8 hrs'],
+                datasets: [{ label: 'Avg Stress Level', data: [5.61, 5.26, 5.23, 5.76], backgroundColor: '#d29922', borderRadius: 4 }]
+            },
+            options: { responsive: true, maintainAspectRatio: false, scales: { y: { min: 4.5, grid: { color: '#30363d' } }, x: { grid: { display: false } } }, plugins: { legend: { display: false } } }
+        });
+
+        new Chart(document.getElementById('ageLineChart'), {
+            type: 'line',
+            data: {
+                labels: ['Age 13', 'Age 14', 'Age 15', 'Age 16', 'Age 17', 'Age 18', 'Age 19'],
+                datasets: [
+                    { label: 'Anxiety Level', data: [5.55, 5.33, 5.91, 5.64, 5.57, 5.41, 6.00], borderColor: '#f85149', backgroundColor: 'rgba(248, 81, 73, 0.1)', fill: true, tension: 0.4 },
+                    { label: 'Stress Level', data: [5.46, 6.17, 5.13, 5.45, 5.17, 5.20, 5.62], borderColor: '#58a6ff', backgroundColor: 'transparent', borderDash: [5, 5], tension: 0.4 }
+                ]
+            },
+            options: { responsive: true, maintainAspectRatio: false, scales: { y: { grid: { color: '#30363d' } }, x: { grid: { color: '#30363d' } } } }
+        });
+
+        new Chart(document.getElementById('sleepPolarChart'), {
+            type: 'polarArea',
+            data: {
+                labels: ['4-5 hrs (Severe)', '5-6 hrs (Low)', '6-7 hrs (Moderate)', '7-8 hrs (Healthy)', '8-9 hrs (Optimal)'],
+                datasets: [{
+                    data: [264, 237, 245, 248, 206],
+                    backgroundColor: [
+                        'rgba(248, 81, 73, 0.7)',
+                        'rgba(210, 153, 34, 0.7)',
+                        'rgba(88, 166, 255, 0.7)',
+                        'rgba(63, 185, 80, 0.7)',
+                        'rgba(35, 134, 54, 0.7)'
+                    ],
+                    borderWidth: 1,
+                    borderColor: '#0d1117'
+                }]
+            },
+            options: { responsive: true, maintainAspectRatio: false, scales: { r: { grid: { color: '#30363d' }, ticks: { display: false } } }, plugins: { legend: { position: 'right', labels: { boxWidth: 10, font: { size: 10 } } } } }
+        });
+    </script>
+</body>
+</html>
